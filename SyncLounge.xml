@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>SyncLounge</Name>
+  <Repository>linuxserver/synclounge</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/synclounge/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/linuxserver/synclounge/</Support>
+  <Project/>
+  <Overview>Synclounge is a tool that allows you to watch Plex in sync with your friends/family, wherever you are.</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:8088]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/xthursdayx/docker-templates/master/images/synclounge-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1589993842</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Synclounge is a tool that allows you to watch Plex in sync with your friends/family, wherever you are.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8088</HostPort>
+        <ContainerPort>8088</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8089</HostPort>
+        <ContainerPort>8089</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data/>
+  <Environment>
+    <Variable>
+      <Value>Europe/London</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>mydomain.com</Value>
+      <Name>EXTERNAL_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>EXTERNAL_SERVER_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>false</Value>
+      <Name>AUTOJOIN_ENABLED</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>roomname</Value>
+      <Name>AUTOJOIN_ROOM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>password</Value>
+      <Name>AUTOJOIN_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="web app port" Target="8088" Default="" Mode="tcp" Description="Container Port: 8088" Type="Port" Display="always" Required="false" Mask="false">8088</Config>
+  <Config Name="server port " Target="8089" Default="" Mode="tcp" Description="Container Port: 8089" Type="Port" Display="always" Required="false" Mask="false">8089</Config>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false">Europe/London</Config>
+  <Config Name="webapp:server:domain for reverse proxy" Target="EXTERNAL_URL" Default="" Mode="" Description="Container Variable: EXTERNAL_URL" Type="Variable" Display="always" Required="false" Mask="false">mydomain.com</Config>
+  <Config Name="server port for use WITHOUT reverse proxy" Target="EXTERNAL_SERVER_PORT" Default="" Mode="" Description="Container Variable: EXTERNAL_SERVER_PORT" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="auto join server" Target="AUTOJOIN_ENABLED" Default="" Mode="" Description="Container Variable: AUTOJOIN_ENABLED" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="auto join room (if autojoin is true)" Target="AUTOJOIN_ROOM" Default="" Mode="" Description="Container Variable: AUTOJOIN_ROOM" Type="Variable" Display="always" Required="false" Mask="false">roomname</Config>
+  <Config Name="password for autojoin" Target="AUTOJOIN_PASSWORD" Default="" Mode="" Description="Container Variable: AUTOJOIN_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false">password</Config>
+</Container>
