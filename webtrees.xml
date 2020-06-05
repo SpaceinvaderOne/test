@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>webtrees</Name>
+  <Repository>dtjs48jkt/webtrees</Repository>
+  <Registry>https://hub.docker.com/r/dtjs48jkt/webtrees/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/dtjs48jkt/webtrees/</Support>
+  <Project/>
+  <Overview>Docker image containing webtrees.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:82]</WebUI>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1591373697</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Docker image containing webtrees.   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>82</HostPort>
+        <ContainerPort>82</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/webtrees/data</HostDir>
+      <ContainerDir>/var/www/html/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/webtrees/media</HostDir>
+      <ContainerDir>/var/www/html/media</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>/etc/localtime</Value>
+      <Name>/etc/localtime</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>82</Value>
+      <Name>PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>FALSE</Value>
+      <Name>UPDATE_ON_START</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>FALSE</Value>
+      <Name>ENABLE_REMOTE_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>TRUE</Value>
+      <Name>DISABLE_SSL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>webtrees</Value>
+      <Name>DB_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>password</Value>
+      <Name>DB_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10.10.20.199</Value>
+      <Name>DB_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3307</Value>
+      <Name>DB_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>webtrees</Value>
+      <Name>DB_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>admin</Value>
+      <Name>WT_ADMIN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>password</Value>
+      <Name>WT_ADMINPW</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>email@email.com</Value>
+      <Name>WT_ADMINMAIL</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="webtrees data" Target="/var/www/html/data" Default="" Mode="rw" Description="webtrees data" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/webtrees/data</Config>
+  <Config Name="Host Path 2" Target="/var/www/html/media" Default="" Mode="rw" Description="webtrees media" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/webtrees/media</Config>
+  <Config Name="Time sync" Target="/etc/localtime" Default="" Mode="" Description="Time sync" Type="Variable" Display="always" Required="false" Mask="false">/etc/localtime</Config>
+  <Config Name="Web server listening port" Target="PORT" Default="" Mode="" Description="Web server listening port" Type="Variable" Display="always" Required="false" Mask="false">82</Config>
+  <Config Name="Update on start" Target="UPDATE_ON_START" Default="FALSE|TRUE" Mode="" Description="Container Variable: UPDATE_ON_START" Type="Variable" Display="always" Required="false" Mask="false">FALSE</Config>
+  <Config Name="Enable remote user authentification" Target="ENABLE_REMOTE_USER" Default="FALSE|TRUE" Mode="" Description="Container Variable: ENABLE_REMOTE_USER" Type="Variable" Display="always" Required="false" Mask="false">FALSE</Config>
+  <Config Name="Disable SSL" Target="DISABLE_SSL" Default="TRUE|FALSE" Mode="" Description="Disable ssl" Type="Variable" Display="always" Required="false" Mask="false">TRUE</Config>
+  <Config Name="Database username" Target="DB_USER" Default="" Mode="" Description="Container Variable: DB_USER" Type="Variable" Display="always" Required="false" Mask="false">webtrees</Config>
+  <Config Name="Database password" Target="DB_PASSWORD" Default="" Mode="" Description="Database password" Type="Variable" Display="always" Required="false" Mask="false">password</Config>
+  <Config Name="Database host" Target="DB_HOST" Default="" Mode="" Description="Database host" Type="Variable" Display="always" Required="false" Mask="false">10.10.20.199</Config>
+  <Config Name="Database port" Target="DB_PORT" Default="" Mode="" Description="Container Variable: DB_PORT" Type="Variable" Display="always" Required="false" Mask="false">3307</Config>
+  <Config Name="Database name" Target="DB_NAME" Default="" Mode="" Description="Database name" Type="Variable" Display="always" Required="false" Mask="false">webtrees</Config>
+  <Config Name="admin username" Target="WT_ADMIN" Default="" Mode="" Description="admin username" Type="Variable" Display="always" Required="false" Mask="false">admin</Config>
+  <Config Name="Admin user password" Target="WT_ADMINPW" Default="" Mode="" Description="Admin user password" Type="Variable" Display="always" Required="false" Mask="false">password</Config>
+  <Config Name="Amin user email address" Target="WT_ADMINMAIL" Default="" Mode="" Description="Amin user email address" Type="Variable" Display="always" Required="false" Mask="false">email@email.com</Config>
+  <Config Name="Host Port 1" Target="82" Default="" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="false" Mask="false">82</Config>
+</Container>
