@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>orthanc</Name>
+  <Repository>jodogne/orthanc-plugins</Repository>
+  <Registry>https://hub.docker.com/r/jodogne/orthanc/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/jodogne/orthanc/</Support>
+  <Project/>
+  <Overview>Orthanc - Lightweight, RESTful DICOM server for medical imaging   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:8042]/</WebUI>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1601111181</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Orthanc - Lightweight, RESTful DICOM server for medical imaging   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>4242</HostPort>
+        <ContainerPort>4242</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8042</HostPort>
+        <ContainerPort>8042</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/orthenc/database</HostDir>
+      <ContainerDir>/var/lib/orthanc/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/orthenc/config</HostDir>
+      <ContainerDir>/etc/orthanc</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="port 4242" Target="4242" Default="" Mode="tcp" Description="Container Port: 4242" Type="Port" Display="always" Required="false" Mask="false">4242</Config>
+  <Config Name="8042" Target="8042" Default="" Mode="tcp" Description="Container Port: 8042" Type="Port" Display="always" Required="false" Mask="false">8042</Config>
+  <Config Name="Host Path 1" Target="/var/lib/orthanc/" Default="" Mode="rw" Description="Container Path: /var/lib/orthanc/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthenc/database</Config>
+  <Config Name="Host Path 2" Target="/etc/orthanc" Default="" Mode="rw" Description="Container Path: /etc/orthanc" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthenc/config</Config>
+</Container>
