@@ -17,7 +17,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1601111181</DateInstalled>
+  <DateInstalled>1601112391</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Orthanc - Lightweight, RESTful DICOM server for medical imaging   Converted By Community Applications   Always verify this template (and values) against the dockerhub support page for the container</Description>
@@ -38,12 +38,12 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/orthenc/database</HostDir>
+      <HostDir>/mnt/user/appdata/orthanc/database</HostDir>
       <ContainerDir>/var/lib/orthanc/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/orthenc/config</HostDir>
+      <HostDir>/mnt/user/appdata/orthanc/config</HostDir>
       <ContainerDir>/etc/orthanc</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -52,6 +52,6 @@
   <Labels/>
   <Config Name="port 4242" Target="4242" Default="" Mode="tcp" Description="Container Port: 4242" Type="Port" Display="always" Required="false" Mask="false">4242</Config>
   <Config Name="8042" Target="8042" Default="" Mode="tcp" Description="Container Port: 8042" Type="Port" Display="always" Required="false" Mask="false">8042</Config>
-  <Config Name="Host Path 1" Target="/var/lib/orthanc/" Default="" Mode="rw" Description="Container Path: /var/lib/orthanc/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthenc/database</Config>
-  <Config Name="Host Path 2" Target="/etc/orthanc" Default="" Mode="rw" Description="Container Path: /etc/orthanc" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthenc/config</Config>
+  <Config Name="Host Path 1" Target="/var/lib/orthanc/" Default="" Mode="rw" Description="Container Path: /var/lib/orthanc/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthanc/database</Config>
+  <Config Name="Host Path 2" Target="/etc/orthanc" Default="" Mode="rw" Description="Container Path: /etc/orthanc" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/orthanc/config</Config>
 </Container>
