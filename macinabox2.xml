@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Macinabox</Name>
+  <Name>Macinabox2</Name>
   <Repository>spaceinvaderone/macinabox2</Repository>
   <Registry>https://hub.docker.com/r/spaceinvaderone/macinabox</Registry>
   <Network>bridge</Network>
@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1605973031</DateInstalled>
+  <DateInstalled>1605985576</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -97,7 +97,7 @@
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/macinabox</HostDir>
+      <HostDir>/mnt/user/appdata/macinabox/config</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -162,7 +162,7 @@
   <Config Name="Install vm " Target="vminstall" Default="--full-install|--prepare-install" Mode="" Description="Full or preparation install" Type="Variable" Display="always" Required="false" Mask="false">--prepare-install</Config>
   <Config Name="vdisk size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size" Type="Variable" Display="always" Required="false" Mask="false">64G</Config>
   <Config Name="vdisk type" Target="TYPE" Default="raw|qcow2" Mode="" Description="Choose vdisk type" Type="Variable" Display="always" Required="false" Mask="false">raw</Config>
-  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/Macinabox2" Mode="rw" Description="For persistent KVM server connections" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/macinabox</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/macinabox/config" Mode="rw" Description="For persistent KVM server connections" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/macinabox/config</Config>
   <Config Name="appdata2" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="appdata for macinabox part" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
   <Config Name="Basesystem" Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temp" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
 </Container>
