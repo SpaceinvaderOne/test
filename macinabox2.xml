@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Macinabox</Name>
+  <Name>Macinabox2</Name>
   <Repository>spaceinvaderone/macinabox2</Repository>
   <Registry>https://hub.docker.com/r/spaceinvaderone/macinabox</Registry>
   <Network>bridge</Network>
@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606513730</DateInstalled>
+  <DateInstalled>1606817986</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -83,12 +83,12 @@
   <Data>
     <Volume>
       <HostDir>/mnt/user/domains/</HostDir>
-      <ContainerDir>/image</ContainerDir>
+      <ContainerDir>/domains</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/etc/libvirt/qemu/</HostDir>
-      <ContainerDir>/xml</ContainerDir>
+      <HostDir>/mnt/user/isos/</HostDir>
+      <ContainerDir>/isos</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -102,7 +102,7 @@
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/macinabox/config</HostDir>
+      <HostDir>/mnt/user/appdata/macinabox</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -111,15 +111,20 @@
       <ContainerDir>/dev/urandom</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/etc/libvirt/qemu/</HostDir>
+      <ContainerDir>/xml</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
   <Environment>
     <Variable>
-      <Value>--bigsur</Value>
+      <Value>--mojave</Value>
       <Name>flavour</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>--prepare-install</Value>
+      <Value>--manual-install</Value>
       <Name>vminstall</Name>
       <Mode/>
     </Variable>
@@ -129,17 +134,12 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>raw</Value>
-      <Name>TYPE</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>both</Value>
+      <Value>macinabox_with_virtmanager</Value>
       <Name>onlyvirt</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>fetch-macos2.py</Value>
+      <Value>fetch-macos.py</Value>
       <Name>fetch</Name>
       <Mode/>
     </Variable>
@@ -175,19 +175,16 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="webvnc container port 5800" Type="Port" Display="always" Required="false" Mask="false">7800</Config>
-  <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="vnc container port 5900" Type="Port" Display="always" Required="false" Mask="false">7900</Config>
-  <Config Name="Operating system" Target="flavour" Default="--catalina|--bigsur|--mojave|--high-sierra" Mode="" Description="Choose macOS version" Type="Variable" Display="always" Required="true" Mask="false">--bigsur</Config>
-  <Config Name="VM Images location" Target="/image" Default="" Mode="rw" Description="normally /mnt/user/domains" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/domains/</Config>
-  <Config Name="Install vm " Target="vminstall" Default="--full-install|--prepare-install" Mode="" Description="Full or preparation install" Type="Variable" Display="always" Required="false" Mask="false">--prepare-install</Config>
-  <Config Name="vdisk size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size" Type="Variable" Display="always" Required="false" Mask="false">64G</Config>
-  <Config Name="vdisk type" Target="TYPE" Default="raw|qcow2" Mode="" Description="Choose vdisk type" Type="Variable" Display="always" Required="true" Mask="false">raw</Config>
-  <Config Name="Run Macinabox, Virtmanger or both" Target="onlyvirt" Default="both|macinabox|virtmanager" Mode="" Description="Choose if you want to run only macinabox (no virtmanager), only virtmanager (no macinabox) or run both (first macinabox then run macinabox)" Type="Variable" Display="always" Required="false" Mask="false">both</Config>
-  <Config Name="XML location" Target="/xml" Default="/etc/libvirt/qemu/" Mode="rw" Description="location of vm xml templates (dont change)" Type="Path" Display="always" Required="true" Mask="false">/etc/libvirt/qemu/</Config>
-  <Config Name="fetch script" Target="fetch" Default="fetch-macos.py|fetch-macos2.py" Mode="" Description="Container Variable: fetch" Type="Variable" Display="always" Required="false" Mask="false">fetch-macos2.py</Config>
+  <Config Name="Operating system version" Target="flavour" Default="--mojave|--catalina|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--mojave</Config>
+  <Config Name="VM Images location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
+  <Config Name="Install type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
+  <Config Name="Vdisk size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
+  <Config Name="Run mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only|fixxml_autoinstall_only" Mode="" Description="3 running modes " Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
+  <Config Name="Download script" Target="fetch" Default="fetch-macos.py|fetch-macos2.py" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">fetch-macos.py</Config>
+  <Config Name="Isos share location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
   <Config Name="appdata2" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="appdata for macinabox part" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
   <Config Name="Basesystem" Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temp" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
-  <Config Name="appdata" Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="Appdata for macinabox" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/config</Config>
+  <Config Name="appdata" Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="Appdata for macinabox" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
   <Config Name="USER_ID" Target="USER_ID" Default="99" Mode="" Description="Container Variable: USER_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
   <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">000</Config>
   <Config Name="GROUP_ID" Target="GROUP_ID" Default="100" Mode="" Description="Container Variable: GROUP_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
@@ -195,4 +192,7 @@
   <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="768" Mode="" Description="Height (in pixels) of the application's window." Type="Variable" Display="advanced" Required="false" Mask="false">768</Config>
   <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1280" Mode="" Description="Width (in pixels) of the application's window." Type="Variable" Display="advanced" Required="false" Mask="false">1280</Config>
   <Config Name="/dev/urandom" Target="/dev/urandom" Default="/dev/urandom" Mode="ro" Description="Container Path: /dev/urandom" Type="Path" Display="advanced" Required="false" Mask="false">/dev/urandom</Config>
+  <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="webvnc container port 5800" Type="Port" Display="advanced" Required="false" Mask="false">7800</Config>
+  <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="vnc container port 5900" Type="Port" Display="advanced" Required="false" Mask="false">7900</Config>
+  <Config Name="XML location" Target="/xml" Default="/etc/libvirt/qemu/" Mode="rw" Description="location of vm xml templates (dont change) only used by auto install" Type="Path" Display="advanced" Required="true" Mask="false">/etc/libvirt/qemu/</Config>
 </Container>
