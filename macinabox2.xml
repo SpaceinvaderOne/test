@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606819047</DateInstalled>
+  <DateInstalled>1606819339</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -119,7 +119,7 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>--mojave</Value>
+      <Value>--catalina</Value>
       <Name>flavour</Name>
       <Mode/>
     </Variable>
@@ -175,7 +175,7 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Operating System Version" Target="flavour" Default="--mojave|--catalina|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--mojave</Config>
+  <Config Name="Operating System Version" Target="flavour" Default="--catalina|--big-sur|--mojave|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--catalina</Config>
   <Config Name="VM Images Location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
   <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
   <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
