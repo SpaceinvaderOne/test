@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606819339</DateInstalled>
+  <DateInstalled>1606821154</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -139,8 +139,8 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>fetch-macos.py</Value>
-      <Name>fetch</Name>
+      <Value>script1</Value>
+      <Name>script</Name>
       <Mode/>
     </Variable>
     <Variable>
@@ -180,7 +180,7 @@
   <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
   <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
   <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only|fixxml_autoinstall_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
-  <Config Name="Download Script" Target="fetch" Default="fetch-macos.py|fetch-macos2.py" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">fetch-macos.py</Config>
+  <Config Name="Download Script" Target="script" Default="script1|script2" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">script1</Config>
   <Config Name="Isos Share Location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
   <Config Name="Macinabox only data" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="Macinabox data as a subfolder of the main appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
   <Config Name="Basesystem " Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temporary location as a subfolder of appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
