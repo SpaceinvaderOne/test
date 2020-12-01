@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606817986</DateInstalled>
+  <DateInstalled>1606819047</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -175,24 +175,24 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Operating system version" Target="flavour" Default="--mojave|--catalina|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--mojave</Config>
-  <Config Name="VM Images location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
-  <Config Name="Install type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
-  <Config Name="Vdisk size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
-  <Config Name="Run mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only|fixxml_autoinstall_only" Mode="" Description="3 running modes " Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
-  <Config Name="Download script" Target="fetch" Default="fetch-macos.py|fetch-macos2.py" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">fetch-macos.py</Config>
-  <Config Name="Isos share location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
-  <Config Name="appdata2" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="appdata for macinabox part" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
-  <Config Name="Basesystem" Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temp" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
-  <Config Name="appdata" Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="Appdata for macinabox" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
+  <Config Name="Operating System Version" Target="flavour" Default="--mojave|--catalina|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--mojave</Config>
+  <Config Name="VM Images Location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
+  <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
+  <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
+  <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only|fixxml_autoinstall_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
+  <Config Name="Download Script" Target="fetch" Default="fetch-macos.py|fetch-macos2.py" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">fetch-macos.py</Config>
+  <Config Name="Isos Share Location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
+  <Config Name="Macinabox only data" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="Macinabox data as a subfolder of the main appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
+  <Config Name="Basesystem " Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temporary location as a subfolder of appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
+  <Config Name="appdata " Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="If you change this location be sure to change Macinabox only data &amp;amp; Baseimage location too." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
   <Config Name="USER_ID" Target="USER_ID" Default="99" Mode="" Description="Container Variable: USER_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
   <Config Name="UMASK" Target="UMASK" Default="000" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false">000</Config>
   <Config Name="GROUP_ID" Target="GROUP_ID" Default="100" Mode="" Description="Container Variable: GROUP_ID" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
-  <Config Name="KEEP_APP_RUNNING" Target="KEEP_APP_RUNNING" Default="" Mode="" Description="KEEP_APP_RUNNING" Type="Variable" Display="advanced" Required="false" Mask="false">1</Config>
-  <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="768" Mode="" Description="Height (in pixels) of the application's window." Type="Variable" Display="advanced" Required="false" Mask="false">768</Config>
-  <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1280" Mode="" Description="Width (in pixels) of the application's window." Type="Variable" Display="advanced" Required="false" Mask="false">1280</Config>
-  <Config Name="/dev/urandom" Target="/dev/urandom" Default="/dev/urandom" Mode="ro" Description="Container Path: /dev/urandom" Type="Path" Display="advanced" Required="false" Mask="false">/dev/urandom</Config>
-  <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="webvnc container port 5800" Type="Port" Display="advanced" Required="false" Mask="false">7800</Config>
-  <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="vnc container port 5900" Type="Port" Display="advanced" Required="false" Mask="false">7900</Config>
-  <Config Name="XML location" Target="/xml" Default="/etc/libvirt/qemu/" Mode="rw" Description="location of vm xml templates (dont change) only used by auto install" Type="Path" Display="advanced" Required="true" Mask="false">/etc/libvirt/qemu/</Config>
+  <Config Name="KEEP_APP_RUNNING" Target="KEEP_APP_RUNNING" Default="" Mode="" Description="Dont change !!" Type="Variable" Display="advanced" Required="true" Mask="false">1</Config>
+  <Config Name="Display Height" Target="DISPLAY_HEIGHT" Default="768" Mode="" Description="Height (in pixels) of the virtmager's window." Type="Variable" Display="advanced" Required="true" Mask="false">768</Config>
+  <Config Name="Display Width" Target="DISPLAY_WIDTH" Default="1280" Mode="" Description="Width (in pixels) of the virtmanager's window." Type="Variable" Display="advanced" Required="true" Mask="false">1280</Config>
+  <Config Name="/dev/urandom" Target="/dev/urandom" Default="/dev/urandom" Mode="ro" Description="Dont change !!" Type="Path" Display="advanced" Required="true" Mask="false">/dev/urandom</Config>
+  <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="Virtmanager webvnc port" Type="Port" Display="advanced" Required="true" Mask="false">7800</Config>
+  <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="Virtmanger vnc port (if you want to use external vnc viewer programme)" Type="Port" Display="advanced" Required="false" Mask="false">7900</Config>
+  <Config Name="XML location" Target="/xml" Default="/etc/libvirt/qemu/" Mode="rw" Description="Dont change !!" Type="Path" Display="advanced" Required="true" Mask="false">/etc/libvirt/qemu/</Config>
 </Container>
