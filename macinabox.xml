@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Macinabox2</Name>
+  <Name>macinabox</Name>
   <Repository>spaceinvaderone/macinabox2</Repository>
   <Registry>https://hub.docker.com/r/spaceinvaderone/macinabox</Registry>
   <Network>bridge</Network>
@@ -39,7 +39,7 @@
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606821154</DateInstalled>
+  <DateInstalled>1606822158</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Catalina, Mojave or HighSierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -124,7 +124,7 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>--manual-install</Value>
+      <Value>--auto-install</Value>
       <Name>vminstall</Name>
       <Mode/>
     </Variable>
@@ -177,7 +177,7 @@
   <Labels/>
   <Config Name="Operating System Version" Target="flavour" Default="--catalina|--big-sur|--mojave|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--catalina</Config>
   <Config Name="VM Images Location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
-  <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--manual-install</Config>
+  <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--auto-install</Config>
   <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
   <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only|fixxml_autoinstall_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
   <Config Name="Download Script" Target="script" Default="script1|script2" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">script1</Config>
