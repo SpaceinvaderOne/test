@@ -54,7 +54,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1606942571</DateInstalled>
+  <DateInstalled>1607015914</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -142,11 +142,6 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
       <Mode>ro</Mode>
     </Volume>
     <Volume>
-      <HostDir>/etc/libvirt/qemu/</HostDir>
-      <ContainerDir>/xml</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
       <HostDir>/boot/config/plugins/user.scripts/scripts</HostDir>
       <ContainerDir>/userscripts</ContainerDir>
       <Mode>rw</Mode>
@@ -179,8 +174,18 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
       <Mode/>
     </Variable>
     <Variable>
-      <Value>no</Value>
+      <Value>yes</Value>
       <Name>injectfixxml</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/mnt/user/domains/</Value>
+      <Name>VMIMAGES</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/mnt/user/isos/</Value>
+      <Name>ISOIMAGES</Name>
       <Mode/>
     </Variable>
     <Variable>
@@ -222,7 +227,9 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">virtmanager_only</Config>
   <Config Name="Download Script" Target="script" Default="script1|script2" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">script1</Config>
   <Config Name="Isos Share Location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
-  <Config Name="Inject fix xml userscript" Target="injectfixxml" Default="no|yes" Mode="" Description="Container Variable: fixxml" Type="Variable" Display="always" Required="false" Mask="false">no</Config>
+  <Config Name="Inject fix xml userscript" Target="injectfixxml" Default="no|yes" Mode="" Description="Container Variable: fixxml" Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
+  <Config Name="VM Images Location again" Target="VMIMAGES" Default="" Mode="" Description="Container Variable: VMIMAGES" Type="Variable" Display="always" Required="false" Mask="false">/mnt/user/domains/</Config>
+  <Config Name="Isos Share Location again" Target="ISOIMAGES" Default="" Mode="" Description="Container Variable: ISOIMAGES" Type="Variable" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
   <Config Name="Macinabox only data" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="Macinabox data as a subfolder of the main appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
   <Config Name="Basesystem " Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="" Mode="rw" Description="Baseimage temporary location as a subfolder of appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
   <Config Name="appdata " Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="If you change this location be sure to change Macinabox only data &amp;amp; Baseimage location too." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
@@ -235,6 +242,5 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <Config Name="/dev/urandom" Target="/dev/urandom" Default="/dev/urandom" Mode="ro" Description="Dont change !!" Type="Path" Display="advanced" Required="true" Mask="false">/dev/urandom</Config>
   <Config Name="webvnc" Target="5800" Default="5800" Mode="tcp" Description="Virtmanager webvnc port" Type="Port" Display="advanced" Required="true" Mask="false">7800</Config>
   <Config Name="vnc" Target="5900" Default="5900" Mode="tcp" Description="Virtmanger vnc port (if you want to use external vnc viewer programme)" Type="Port" Display="advanced" Required="false" Mask="false">7900</Config>
-  <Config Name="XML location" Target="/xml" Default="/etc/libvirt/qemu/" Mode="rw" Description="Dont change !!" Type="Path" Display="advanced" Required="true" Mask="false">/etc/libvirt/qemu/</Config>
   <Config Name="Host Path 3" Target="/userscripts" Default="/boot/config/plugins/user.scripts/scripts" Mode="rw" Description="Container Path: /userscripts" Type="Path" Display="advanced" Required="false" Mask="false">/boot/config/plugins/user.scripts/scripts</Config>
 </Container>
