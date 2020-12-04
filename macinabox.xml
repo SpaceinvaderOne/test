@@ -54,7 +54,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1607015914</DateInstalled>
+  <DateInstalled>1607040294</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -164,7 +164,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
       <Mode/>
     </Variable>
     <Variable>
-      <Value>virtmanager_only</Value>
+      <Value>macinabox_with_virtmanager</Value>
       <Name>onlyvirt</Name>
       <Mode/>
     </Variable>
@@ -224,7 +224,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <Config Name="VM Images Location" Target="/domains" Default="" Mode="rw" Description="VM share. Used only by auto install (if your vm share is not default  /mnt/user/domains auto install will not work.)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
   <Config Name="Install Type" Target="vminstall" Default="--manual-install|--auto-install" Mode="" Description="Manual Install (preferred as more control) or Auto install will install basic macOS VM" Type="Variable" Display="always" Required="true" Mask="false">--auto-install</Config>
   <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
-  <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">virtmanager_only</Config>
+  <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
   <Config Name="Download Script" Target="script" Default="script1|script2" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">script1</Config>
   <Config Name="Isos Share Location" Target="/isos" Default="" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
   <Config Name="Inject fix xml userscript" Target="injectfixxml" Default="no|yes" Mode="" Description="Container Variable: fixxml" Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
