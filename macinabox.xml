@@ -54,7 +54,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1607043022</DateInstalled>
+  <DateInstalled>1607079871</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -119,6 +119,11 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
     <Volume>
       <HostDir>/mnt/user/isos/</HostDir>
       <ContainerDir>/isos</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/system/custom_ovmf/</HostDir>
+      <ContainerDir>/customovmf/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -229,6 +234,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <Config Name="Isos Share Location again" Target="ISOIMAGES" Default="/mnt/user/isos/" Mode="" Description="This must match the above Isos Share Location (yes we need it twice!)" Type="Variable" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
   <Config Name="Download Script" Target="script" Default="script1|script2" Mode="" Description="2 different scripts to get macos. Change if one doesnt work for you" Type="Variable" Display="always" Required="true" Mask="false">script1</Config>
   <Config Name="Run Mode" Target="onlyvirt" Default="macinabox_with_virtmanager|virtmanager_only" Mode="" Description="choose running mode" Type="Variable" Display="always" Required="true" Mask="false">macinabox_with_virtmanager</Config>
+  <Config Name="custom ovmf location" Target="/customovmf/" Default="/mnt/user/system/custom_ovmf/" Mode="rw" Description="dont change" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/system/custom_ovmf/</Config>
   <Config Name="appdata" Target="/config" Default="/mnt/user/appdata/macinabox" Mode="rw" Description="If you change this location be sure to change Macinabox only data &amp;amp; Baseimage location too." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox</Config>
   <Config Name="Macinabox only data" Target="/config2" Default="/mnt/user/appdata/macinabox/macinabox" Mode="rw" Description="Macinabox data as a subfolder of the main appdata&#13;&#10;" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/macinabox</Config>
   <Config Name="Basesystem " Target="/Macinabox/tools/FetchMacOS/BaseSystem" Default="/mnt/user/appdata/macinabox/basesystem" Mode="rw" Description="Baseimage temporary location as a subfolder of appdata" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/macinabox/basesystem</Config>
