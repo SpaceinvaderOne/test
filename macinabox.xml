@@ -54,7 +54,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1607171215</DateInstalled>
+  <DateInstalled>1607188474</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
@@ -154,17 +154,17 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   </Data>
   <Environment>
     <Variable>
-      <Value>--catalina</Value>
+      <Value>Catalina</Value>
       <Name>flavour</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>--auto-install</Value>
+      <Value>Auto install</Value>
       <Name>vminstall</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>64G</Value>
+      <Value>100G</Value>
       <Name>vdisksize</Name>
       <Mode/>
     </Variable>
@@ -225,9 +225,9 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Operating System Version" Target="flavour" Default="--catalina|--big-sur|--mojave|--high-sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">--catalina</Config>
-  <Config Name="Install Type" Target="vminstall" Default="--auto-install|--manual-install" Mode="" Description="Auto install to install a vm directly into Unraid. Manual for advanced install" Type="Variable" Display="always" Required="true" Mask="false">--auto-install</Config>
-  <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">64G</Config>
+  <Config Name="Operating System Version" Target="flavour" Default="Catalina|Big Sur|Mojave|High Sierra" Mode="" Description="Choose macOS version to install " Type="Variable" Display="always" Required="true" Mask="false">Catalina</Config>
+  <Config Name="Install Type" Target="vminstall" Default="Auto install|Manual install" Mode="" Description="Auto install to install a vm directly into Unraid. Manual for advanced install" Type="Variable" Display="always" Required="true" Mask="false">Auto install</Config>
+  <Config Name="Vdisk Size" Target="vdisksize" Default="" Mode="" Description="Enter desired vdisk size (only used by auto install - ignored by manual install)" Type="Variable" Display="always" Required="true" Mask="false">100G</Config>
   <Config Name="VM Images Location" Target="/domains" Default="/mnt/user/domains/" Mode="rw" Description="VM share. Used only by auto install to create vm xml" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
   <Config Name="VM Images Location again" Target="VMIMAGES" Default="/mnt/user/domains/" Mode="" Description="This must match the above VM Images Location (yes we need it twice!)" Type="Variable" Display="always" Required="true" Mask="false">/mnt/user/domains/</Config>
   <Config Name="Isos Share Location" Target="/isos" Default="/mnt/user/isos/" Mode="rw" Description="Your isos share path - macOS install and opencore bootloader will be put here. (used by auto and manual install)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/isos/</Config>
