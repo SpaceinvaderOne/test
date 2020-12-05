@@ -54,7 +54,7 @@ yes   Macinabox will try to copy the script and inject directly into userscript 
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1607079871</DateInstalled>
+  <DateInstalled>1607171215</DateInstalled>
   <DonateText>If you like this then please consider buying me a beer!! :D</DonateText>
   <DonateLink>https://www.paypal.me/spaceinvader</DonateLink>
   <Description>This container can download macOS either Big Sur, Catalina, Mojave or High Sierra. It will download the install media from Apple servers and convert it to a usable format for use for a VM.&#xD;
