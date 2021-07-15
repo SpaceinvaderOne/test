@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Beep-Music-Converter</Name>
+  <Repository>spaceinvaderone/beep_music_converter</Repository>
+  <Registry>https://hub.docker.com/repository/docker/spaceinvaderone/wav2beep</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support/>
+  <Project>https://github.com/SpaceinvaderOne/Beep-Music-Converter</Project>
+  <Overview>Unraid container to convert mp3 or wav to PC beep speaker music&#xD;
+&#xD;
+This is a container to be able to convert a wav or mp3 file into "beep code" so to be able to play it through a PC beep speaker. This can then be used to add to a user script&#xD;
+to do things like play a tune on server startup and shutdown. (nice for headless server to know when its up)&#xD;
+&#xD;
+You will need a beep speaker in your server for this to work. Dont worry they are very cheap! Under $5 on Amazon for two! https://amzn.to/3kwWvlN&#xD;
+&#xD;
+default - This is the standard running mode. It will look for an mp3 or wav file in the folder file_to_convert in the containers appdata folder. - The file will first be converted from its source to a 16bit 44100 Wav file using sox. After which its passed to wavtobeep for conversion to beep code.&#xD;
+&#xD;
+Indiana Jones - This converts a test wav file (Indiana Jones) and plays it through the beep speaker&#xD;
+&#xD;
+Monkey Island _ This converts a test wav file (Monkey Island) and plays it through the beep speaker&#xD;
+&#xD;
+Silent choose from no|yes If set to yes converts the file without playing it default is "no"</Overview>
+  <Category>Tools:</Category>
+  <WebUI>https://amzn.to/3kwWvlN</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/SpaceinvaderOne/Beep-Music-Converter/main/beep_icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1626342432</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Unraid container to convert mp3 or wav to PC beep speaker music&#xD;
+&#xD;
+This is a container to be able to convert a wav or mp3 file into "beep code" so to be able to play it through a PC beep speaker. This can then be used to add to a user script&#xD;
+to do things like play a tune on server startup and shutdown. (nice for headless server to know when its up)&#xD;
+&#xD;
+You will need a beep speaker in your server for this to work. Dont worry they are very cheap! Under $5 on Amazon for two! https://amzn.to/3kwWvlN&#xD;
+&#xD;
+default - This is the standard running mode. It will look for an mp3 or wav file in the folder file_to_convert in the containers appdata folder. - The file will first be converted from its source to a 16bit 44100 Wav file using sox. After which its passed to wavtobeep for conversion to beep code.&#xD;
+&#xD;
+Indiana Jones - This converts a test wav file (Indiana Jones) and plays it through the beep speaker&#xD;
+&#xD;
+Monkey Island _ This converts a test wav file (Monkey Island) and plays it through the beep speaker&#xD;
+&#xD;
+Silent choose from no|yes If set to yes converts the file without playing it default is "no"</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/beepmusic/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>default</Value>
+      <Name>custom</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>yes</Value>
+      <Name>silent</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>50</Value>
+      <Name>time</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="appdata" Target="/config" Default="" Mode="rw" Description="appdata" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/beepmusic/</Config>
+  <Config Name="custom" Target="custom" Default="default|Indiana_Jones|Monkey_Island" Mode="" Description="Default or choose other for an example to be converted" Type="Variable" Display="always" Required="false" Mask="false">default</Config>
+  <Config Name="silent" Target="silent" Default="no|yes" Mode="" Description="Silent converts file without playing through beep speaker." Type="Variable" Display="always" Required="false" Mask="false">yes</Config>
+  <Config Name="time" Target="time" Default="50" Mode="" Description="Time window for frequency analysis (in ms). Default 50 ms." Type="Variable" Display="advanced" Required="false" Mask="false">50</Config>
+  <Config Name="beep" Target="" Default="" Mode="" Description="path to beep speaker (you must have a beep speaker for thih container to work)" Type="Device" Display="advanced" Required="false" Mask="false">/dev/tty0</Config>
+</Container>
